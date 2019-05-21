@@ -3,8 +3,21 @@ title: Use Middleware to Handle Asynchronous Actions
 ---
 ## Use Middleware to Handle Asynchronous Actions
 
-This is a stub. <a href='https://github.com/freecodecamp/guides/tree/master/src/pages/certifications/front-end-libraries/redux/use-middleware-to-handle-asynchronous-actions/index.md' target='_blank' rel='nofollow'>Help our community expand it</a>.
+Dispatch the `requestingData()` actioncreater before `setTimeout()`,dispatch the `receivedData()` actioncreater and incoming data after you received data simulated.
+  
+```react.js
+const handleAsync = () => {
+  return function(dispatch) {
+    dispatch(requestingData());
+    setTimeout(function() {
+      let data = {
+        users: ['Jeff', 'William', 'Alice']
+      }
+      dispatch(receivedData(data));
+    }, 2500);
+  }
+};
+```
 
-<a href='https://github.com/freecodecamp/guides/blob/master/README.md' target='_blank' rel='nofollow'>This quick style guide will help ensure your pull request gets accepted</a>.
 
 <!-- The article goes here, in GitHub-flavored Markdown. Feel free to add YouTube videos, images, and CodePen/JSBin embeds  -->
